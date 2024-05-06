@@ -1,0 +1,52 @@
+@page "/courses/{courseId}"
+@inject NavigationManager NavigationManager
+
+<h1>Course Page</h1>
+<FluentStack Orientation="Orientation.Vertical">
+    <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maurisscelerisque varius ornare. Etiam convallis
+        sollicitudin scelerisque.Maecenas in velit vehicula, aliquet orci et, consequat purus. Donec egetsodales
+        lectus, vel sollicitudin ligula. Suspendisse volutpat auctor diam,vel mattis lorem venenatis in.</span>
+    <FluentDivider Style="width: 100%;" Orientation=Orientation.Horizontal Role="DividerRole.Separator">
+    </FluentDivider>
+</FluentStack>
+<FluentStack Orientation="Orientation.Vertical">
+    <FluentStack Orientation="Orientation.Horizontal">
+        <div class="video-container" style="padding: 5px; margin: 0 0 0 5px">
+            <video controls="controls" width="800px" height="462px"
+                poster="https://rafflegames.blob.core.windows.net/publicvideos/BeAWinner.jpg">
+                <source src="https://rafflegames.blob.core.windows.net/publicvideos/BeAWinner.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div style="padding: 6px 0px 0px 2px; width: 100%">
+            <FluentAccordion ActiveId="@activeId"  OnAccordionItemChange="HandleOnAccordionItemChange">
+                <FluentAccordionItem Heading="Panel one">
+                    Panel one content, using the 'start' slot for extra header content (in this case an icon)
+                </FluentAccordionItem>
+                <FluentAccordionItem Heading="Panel two">
+                    <div slot="end">
+                        #end#
+                    </div>
+                    Panel two content, using the 'end' slot for extra header content (in this case an HTML button)
+                </FluentAccordionItem>
+            </FluentAccordion>
+        </div>
+    </FluentStack>
+</FluentStack>
+
+@code {
+    [Parameter]
+    public string? CourseId { get; set; }
+
+    string activeId = "accordion-1";
+    FluentAccordionItem? changed;
+
+    private void HandleOnAccordionItemChange(FluentAccordionItem item)
+    {
+        changed = item;
+    }
+    protected override void OnInitialized()
+    {
+        Console.WriteLine(CourseId);
+    }
+}

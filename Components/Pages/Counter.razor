@@ -1,0 +1,26 @@
+﻿@page "/counter"
+@rendermode InteractiveServer
+
+<PageTitle>Counter</PageTitle>
+
+<h1>Counter</h1>
+
+<div role="status" style="padding-bottom: 1em;">
+    Current count: <FluentBadge Appearance="Appearance.Neutral">@currentCount</FluentBadge>
+</div>
+
+<FluentButton Appearance="Appearance.Accent" @onclick="IncrementCount">Click me</FluentButton>
+
+<FluentCard>
+  <h2>Hello World!</h2>
+  <FluentButton Appearance="@Appearance.Accent">Click Me</FluentButton>  
+</FluentCard>
+
+@code {
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+}

@@ -1,0 +1,58 @@
+﻿@page "/courses"
+@rendermode InteractiveServer
+@inject NavigationManager NavigationManager
+
+<PageTitle>Courses</PageTitle>
+<FluentLabel Typo="Typography.H1" Style="padding: 15px">Courses</FluentLabel>
+
+
+<FluentGrid Spacing="3" OnBreakpointEnter="@OnBreakpointEnterHandler" Justify="@Justification" Style="padding: 5px;
+ ">
+@foreach (var course in courseList)
+{
+    <FluentGridItem Style="">
+        <FluentCard Width="350px" Height="500px">
+            <img src="https://via.placeholder.com/300x200/414141" />
+            <div style="padding: 0 10px 10px; color: var(--neutral-foreground-rest);">
+                <h2><FluentAnchor Class="txt-decoration-none" Href="@($"courses/{course.Id}")" Appearance="Appearance.Hypertext">@course.Name</FluentAnchor></h2>
+                <p>@course.Description</p>
+                   <FluentButton Appearance="Appearance.Accent">Register</FluentButton>
+            </div>
+
+        </FluentCard>
+    </FluentGridItem>
+}    
+</FluentGrid>
+
+
+
+@code {
+    JustifyContent Justification = JustifyContent.FlexStart;
+    List<Models.Course> courseList = new List<Models.Course>();
+    //int Spacing = 1;
+
+    void OnBreakpointEnterHandler(GridItemSize size)
+    {
+        Console.WriteLine($"Page Size: {size}");
+        //DemoLogger.WriteLine($"Page Size: {size}");
+    }
+    private void onClickHeadingHandler(EventCallback e)
+    {
+        NavigationManager.NavigateTo($"courses/1");
+    }
+    protected override void OnInitialized()
+    {
+        courseList = new List<Models.Course>() {
+            new Models.Course(){Id = 1, Description = @"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maurisscelerisque varius ornare. Etiam
+                    convallis sollicitudin scelerisque.Maecenas in velit vehicula, aliquet orci et, consequat purus.
+                    Donec egetsodales lectus, vel sollicitudin ligula. Suspendisse volutpat auctor diam,vel mattis lorem
+                    venenatis in.", Duration = 2, Name = "Course 1"},
+            new Models.Course(){Id = 2, Description = @"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maurisscelerisque varius ornare. Etiam
+                    convallis sollicitudin scelerisque.Maecenas in velit vehicula, aliquet orci et, consequat purus.
+                    Donec egetsodales lectus, vel sollicitudin ligula. Suspendisse volutpat auctor diam,vel mattis lorem
+                    venenatis in.", Duration = 2, Name = "Course 2"},
+        };
+    }
+           
+    
+}
