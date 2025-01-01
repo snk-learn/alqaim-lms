@@ -1,0 +1,27 @@
+﻿@using static Microsoft.FluentUI.AspNetCore.Components.Icons.Filled.Size20
+@rendermode InteractiveServer
+
+<div class="navmenu">
+   @*  <input type="checkbox" title="Menu expand/collapse toggle" id="navmenu-toggle" class="navmenu-icon" /> *@
+   @*  <label for="navmenu-toggle" class="navmenu-icon"><FluentIcon Value="@(new Navigation())" Color="Fuic.Color.Fill" /></label> *@
+    <nav class="sitenav" aria-labelledby="main-menu" onclick="document.getElementById('navmenu-toggle').click();">       
+            <FluentNavMenu Id="main-menu" Width="250" Title="Navigation menu" @bind-Expanded="expanded">
+                <FluentNavLink Href="/" Match="NavLinkMatch.All" Icon="@(new Home())" IconColor="Fuic.Color.Accent">Home</FluentNavLink>
+                <FluentNavLink Href="counter" Icon="@(new NumberSymbolSquare())" IconColor="Fuic.Color.Accent">Counter</FluentNavLink>
+                <FluentNavLink Href="weather" Icon="@(new WeatherPartlyCloudyDay())" IconColor="Fuic.Color.Accent">Weather</FluentNavLink>
+                <FluentNavLink Href="courses" Icon="@(new WeatherPartlyCloudyDay())" IconColor="Fuic.Color.Accent">Courses</FluentNavLink>
+            </FluentNavMenu>       
+        
+    </nav>
+</div>
+
+@code {
+    private bool expanded = true;
+   
+
+
+    protected override Task OnInitializedAsync()
+    {
+        return base.OnInitializedAsync();
+    }
+}

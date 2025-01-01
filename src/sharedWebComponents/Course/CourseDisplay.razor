@@ -1,0 +1,23 @@
+﻿<FluentGrid Spacing="3" OnBreakpointEnter="@OnBreakpointEnterHandler" Justify="@Justification" Style="padding: 5px;">
+    @foreach (var course in Courses)
+    {
+        <FluentGridItem Style="">
+            <FluentCard Width="276px" Height="244px" Style="padding:0px">
+                <img style="width:100%" src="https://www.codewithantonio.com/_next/image?url=https%3A%2F%2Futfs.io%2Ff%2F639978a4-f9e8-402d-ad9e-3f7921ff0efb-8goos1.png&w=750&q=75" />
+                <div style="padding: 2px; color: var(--neutral-foreground-rest);">
+                    <div class="course-title">
+                        <FluentAnchor Class="txt-decoration-none course-lbl" Href="@($"courses/{course.Id}")" Appearance="Appearance.Hypertext">@course.Title</FluentAnchor>
+                    </div>
+                    @*   <div class="course-description">@course.Description</div> *@
+                    @*  <FluentButton Appearance="Appearance.Accent">Register</FluentButton> *@
+                    <FluentButton BackgroundColor="var(--highlight-bg)"
+                                  Style="margin:5px"
+                                  Color="var(--info)" IconStart="@(new Size20.NavigationPlay())"
+                                  Appearance="Appearance.Lightweight">
+                        Chapters
+                    </FluentButton>
+                </div>
+            </FluentCard>
+        </FluentGridItem>
+    }
+</FluentGrid>

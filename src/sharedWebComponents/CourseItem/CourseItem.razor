@@ -1,0 +1,31 @@
+﻿<FluentStack Orientation="Orientation.Vertical">
+    <span>
+        @Course.Title
+    </span>
+    <FluentDivider Style="width: 100%;" Orientation=Orientation.Horizontal Role="DividerRole.Separator">
+    </FluentDivider>
+</FluentStack>
+<FluentStack Orientation="Orientation.Vertical">
+    <FluentStack Orientation="Orientation.Horizontal">
+        <div class="video-container" style="padding: 5px; margin: 0 0 0 5px">
+            <video controls="controls" width="800px" height="462px"
+                   poster=@Course.Poster>
+                <source src=@Course.VideoUrl type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div style="padding: 6px 0px 0px 2px; width: 100%">
+            <FluentAccordion ActiveId="@activeId" OnAccordionItemChange="HandleOnAccordionItemChange">
+                <FluentAccordionItem Heading="Panel one">
+                    Panel one content, using the 'start' slot for extra header content (in this case an icon)
+                </FluentAccordionItem>
+                <FluentAccordionItem Heading="Panel two">
+                    <div slot="end">
+                        #end#
+                    </div>
+                    Panel two content, using the 'end' slot for extra header content (in this case an HTML button)
+                </FluentAccordionItem>
+            </FluentAccordion>
+        </div>
+    </FluentStack>
+</FluentStack>

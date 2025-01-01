@@ -1,0 +1,65 @@
+﻿@page "/courses"
+@rendermode InteractiveServer
+@inject NavigationManager NavigationManager
+
+<PageTitle>Courses</PageTitle>
+<FluentLabel Typo="Typography.H1" Style="padding: 15px">Courses</FluentLabel>
+
+<CourseDisplay Courses="courseList"></CourseDisplay>
+
+@code {
+    List<Domain.Course> courseList = new List<Domain.Course>()
+    {
+        new Domain.Course()
+         {
+                Id = 1,
+                Description = @"Lorem ipsum dolor sit amet, consectetur adipiscing elit.", Title = "Course Name"
+         },
+         new Domain.Course()
+         {
+                Id = 1,
+                Description = @"Lorem ipsum dolor sit amet, consectetur adipiscing elit.", Title = "Course Name"
+         },new Domain.Course()
+         {
+                Id = 1,
+                Description = @"Lorem ipsum dolor sit amet, consectetur adipiscing elit.", Title = "Course Name"
+         },new Domain.Course()
+         {
+                Id = 1,
+                Description = @"Lorem ipsum dolor sit amet, consectetur adipiscing elit.", Title = "Course Name"
+         },new Domain.Course()
+         {
+                Id = 1,
+                Description = @"Lorem ipsum dolor sit amet, consectetur adipiscing elit.", Title = "Course Name"
+         },
+          new Domain.Course()
+         {
+                Id = 1,
+                Description = @"Lorem ipsum dolor sit amet, consectetur adipiscing elit.", Title = "Course 1"
+         },
+          new Domain.Course()
+         {
+                Id = 1,
+                Description = @"Lorem ipsum dolor sit amet, consectetur adipiscing elit.", Title = "Course 1"
+         },
+          new Domain.Course()
+         {
+                Id = 1,
+                Description = @"Lorem ipsum dolor sit amet, consectetur adipiscing elit.", Title = "Course 1"
+         },
+          new Domain.Course()
+         {
+                Id = 1,
+                Description = @"Lorem ipsum dolor sit amet, consectetur adipiscing elit.", Title = "Course 1"
+         },
+          new Domain.Course()
+         {
+                Id = 2,
+                Description = @"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maurisscelerisque varius ornare. Etiam
+                    convallis sollicitudin scelerisque.Maecenas in velit vehicula, aliquet orci et, consequat purus.
+                    Donec egetsodales lectus, vel sollicitudin ligula. Suspendisse volutpat auctor diam,vel mattis lorem
+                    venenatis in.", Title = "Course Name"
+         }
+    };
+     
+}
