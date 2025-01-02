@@ -22,6 +22,9 @@ body {
     align-self: stretch;
     height: unset !important;
     display: flex;
+    background-color: #F9FAFB;
+    box-sizing: border-box;
+    border: 1px solid #e5e7eb;
 }
 
 .content {
@@ -38,7 +41,7 @@ fluent-anchor.txt-decoration-none.hypertext::part(control) {
     text-decoration: none;
 }
 fluent-anchor.course-lbl.hypertext::part(control) {
-    font-weight: 500;
+    font-weight: bold;
     font-size: 1rem;
     line-height: 1.5rem;
 }

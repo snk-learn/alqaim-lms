@@ -1,0 +1,32 @@
+﻿@using Microsoft.FluentUI.AspNetCore.Components.Icons;
+
+@{
+    string stylevalue = $"background-color: var(--neutral-layer-3); overflow: auto; resize: {("vertical; width: 86px; height: 320px;" )}  padding: 10px;";
+}
+
+<div style="@stylevalue">
+    <FluentAppBar Orientation="Orientation.Vertical" Style="@(" background-color: var(--neutral-layer-2);")">
+    <FluentAppBarItem Href="/" Match="NavLinkMatch.All" IconRest="ResourcesIcon()"
+        IconActive="ResourcesIcon(active: true)" Text="Resources" />
+    <FluentAppBarItem Href="/courses" IconRest="CoursesIcon()" IconActive="CoursesIcon(active: true)"
+        Text="Console Logs" />
+    <FluentAppBarItem Href="/weather" IconRest="MetricsIcon()" IconActive="MetricsIcon(active: true)" Text="Logs"
+        Tooltip="Structured Logs" Count="4" />
+</FluentAppBar>
+</div>
+
+
+
+
+@code {
+    private static Icon ResourcesIcon(bool active = false) =>
+    active ? new I.Filled.Size24.AppFolder()
+    : new I.Regular.Size24.AppFolder();
+
+    private static Icon CoursesIcon(bool active = false) =>
+    active ? new I.Filled.Size24.AppFolder()
+    : new I.Regular.Size24.AppFolder();
+    private static Icon MetricsIcon(bool active = false) =>
+    active ? new I.Filled.Size24.ChartMultiple()
+    : new I.Regular.Size24.ChartMultiple();
+}
